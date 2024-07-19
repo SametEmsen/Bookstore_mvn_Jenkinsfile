@@ -13,5 +13,7 @@ public class Globals {
     public static String username;
     public static String password;
 
+    public static String token;
+
     public static String userID;
 }
