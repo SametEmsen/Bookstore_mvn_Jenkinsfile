@@ -14,6 +14,10 @@ public class Bookstore_stepDefs {
     Authorized authorized = new Authorized();
     AddNewBook addNewBook = new AddNewBook();
 
+    GetUserInfo getUserInfo = new GetUserInfo();
+
+    UpdateBook updateBook = new UpdateBook();
+
     @When("Get all Books")
     public void get_all_books() {
         getAllBooks.getAllBooks();
@@ -63,5 +67,34 @@ public class Bookstore_stepDefs {
     @Then("Validate that new book is added")
     public void validate_that_new_book_is_added() {
         addNewBook.validateThatBookIsAdded();
+    }
+
+    @When("Get User Info")
+    public void get_user_info() {
+        getUserInfo.getUserInfo();
+    }
+
+    @Then("Validate that user's details are correct")
+    public void validate_that_user_s_details_are_correct() {
+        getUserInfo.vvalidations();
+    }
+
+    @When("Update book")
+    public void update_book() {
+        updateBook.updateBook();
+    }
+
+    @Then("Validate that book is updated")
+    public void validate_that_book_is_updated() {
+        updateBook.validations();
+    }
+
+    @When("Delete Book")
+    public void delete_book() {
+
+    }
+    @Then("Validate that book is removed")
+    public void validate_that_book_is_removed() {
+
     }
 }

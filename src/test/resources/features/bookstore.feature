@@ -18,3 +18,12 @@ Feature: Bookstore Api Flow
 
     When Add new book to user
     Then Validate that new book is added
+
+    When Get User Info
+    Then Validate that user's details are correct
+
+    When Update book
+    Then Validate that book is updated
+
+    When Delete Book
+    Then Validate that book is removed
