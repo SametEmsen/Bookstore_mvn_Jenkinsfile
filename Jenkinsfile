@@ -58,4 +58,27 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            emailext (
+                subject: "${currentBuild.result?:'SUCCESS'} - ${env.JOB_NAME} - Build #${env.BUILD_NUMBER}",
+                body: '''
+                <html>
+                <body>
+                <h2>${PROJECT_NAME} - Build #${BUILD_NUMBER} - ${BUILD_STATUS}</h2>
+                <p>Check console output at <a href="${BUILD_URL}">${BUILD_URL}</a></p>
+                <p>Cucumber Report: <a href="${BUILD_URL}cucumber-html-reports/overview-features.html">Test Results</a></p>
+                <p>Duration: ${currentBuild.durationString}</p>
+                <p>Build Log (last 100 lines):</p>
+                <pre>${BUILD_LOG, maxLines=100, escapeHtml=true}</pre>
+                </body>
+                </html>
+                ''',
+                to: 'sametemsen@gmail.com',
+                attachLog: true,
+                compressLog: true
+            )
+        }
+    }
+}
 }
