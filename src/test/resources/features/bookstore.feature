@@ -16,7 +16,7 @@ Feature: Bookstore Api Flow
     When Authorized User
     Then Validate that user is authorized
 
-    When Add new book to user3562
+    When Add new book to user
     Then Validate that new book is added
 
     When Get User Info
